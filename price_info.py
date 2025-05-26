@@ -3,6 +3,17 @@ price_list={'apple' : 1.20, 'orange':1.40, 'watermelon': 6.50, 'pineapple': 2.70
 
 quantity_list= {'apple': 5, 'orange':5, 'watermelon': 1, 'pineapple': 2, 'pear' : 10, 'papaya': 1, 'pomegranate': 2}
 
+def calculate_individual_costs():
+    print("\n--- Individual Fruit Costs ---")
+    cost = 0
+    for fruit in price_list:
+        if fruit in quantity_list:
+            cost = price_list[fruit] * quantity_list[fruit]
+            print(fruit, ":", quantity_list[fruit], "x", "$", price_list[fruit], "=", "${:.2f}".format(cost))
+            #print(f"{fruit}: {quantity_list[fruit]} x ${price_list[fruit]} = ${cost:.2f}")
+    return cost
+
+
 
 def total_cost_shopping():
     total_cost = 0
@@ -29,8 +40,10 @@ def cost_of_fruits(fruit, quantity):
 
 def main():
 
-    cost_of_fruits('apple', 10)
+    calculate_individual_costs()
+    cost_of_fruits('orange', 10)
     total_cost_shopping()
+
 
 
 if __name__ == "__main__":
